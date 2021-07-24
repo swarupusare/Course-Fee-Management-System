@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:ws="http://jax-ws.dev.java.net/spring/core" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+">
+    <!--schema error-->
+<!--    <bean class="org.springframework.mail.javamail.JavaMailSenderImpl" name="sendemail">
+        <property name="host" >
+            <value>smtp.gmail.com</value>
+        </property>
+        <property name="username">
+            <value>swarupusare12@gmail.com</value>            
+        </property>
+        <property name="password"> //property spell
+            <value>swarup123</value>
+        </property>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth" ></prop>
+                <prop key="mail.smtp.socketFactory.port">465</prop>  
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>  
+                <prop key="mail.smtp.port">465</prop>  
+            </props>
+        </property>       
+    </bean>-->
+    <bean  class="org.springframework.mail.javamail.JavaMailSenderImpl"   name="msender" >
+        <property name="host" value="smtp.gmail.com"></property>
+        <property name="username" value="swarupusare12@gmail.com">
+        </property>
+        <property name="password" value="swarup123"></property>
+        <property name="javaMailProperties">  
+            <props>  
+                <prop key="mail.smtp.auth">true</prop>  
+                <prop key="mail.smtp.socketFactory.port">465</prop>  
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>  
+                <prop key="mail.smtp.port">465</prop>  
+            </props>  
+        </property>  
+    </bean>
+    <bean class="com.start.feeHQL.injectmailsender" name="m">
+        <property name="mailSender">
+            <ref bean="msender"></ref>
+        </property>
+    </bean>
+    
+
+</beans>
